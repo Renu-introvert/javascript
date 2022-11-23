@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.list-type{
+			list-style: none;
+		}
+		.listitem{
+			font-size: 2rem;
+		}
+		*{
+			margin: 0%;
+		}	
+		body{
+			background-color: #F8C471 ;
+			text-align: center;
+			margin-top: 20%;
+			background-image: url(https://freedesignfile.com/upload/2016/10/Maple-leaf-with-blurred-sunlight-background-04.jpg);
+			background-repeat: no-repeat;
+           	background-size: cover;
+			color: #FF0000;
+		}
+		#newTodo{
+			border: 2px solid green;
+			padding: 2%;
+		}
+		.div1{
+			border: 4px solid #800080 ;
+			width: 20%;
+			background-color: white;
+			padding: 1%;
+			margin: auto;
+		}
+		.but:hover{
+			background-color: pink;
+		}
+		.but{
+			margin-top: 3%;
+			color: brown;
+		}
+	</style>
+	<script src="https://kit.fontawesome.com/86bb47d1a9.js" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		function todo(){
+		   let newTodo=document.getElementById("newTodo").value
+		   //console.log("newTodo")
+		   document.getElementById("newTodo").value=""
+		   if(newTodo===""){
+		   		alert("Enter a todo")
+		   }
+		   else{
+		   		addTodo(newTodo)
+		   }
+		}
+		function addTodo(newValue){
+			let ul=document.querySelector("ul")
+			console.log(ul)
+			let li=document.createElement("li")
+			li.innerHTML=`
+			<span class="listitem">${newValue}</span><i class="fa-solid fa-rectangle-xmark"></i>`
+			li.classList.add("list-type")
+			ul.appendChild(li)
+		}
+	</script>
+</head>
+<body>
+	<div class="div1">
+	<input id="newTodo" placeholder="Enter a todo"/>
+	<ul>
+	</ul>
+	<button class="but" onclick="todo()">Submit</button>
+	</div>
+</body>
+</html>
